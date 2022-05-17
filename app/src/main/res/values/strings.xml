@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Book Mall</string>
+    <string name="title_activity_mall">MallActivity</string>
+    <string name="title_home">Book Mall</string>
+    <string name="title_dashboard">Shopping Cart</string>
+    <string name="title_notifications">Order History</string>
+
+    <string name="total">合计:0.00</string>
+    <string name="buy">结算(0)</string>
+    <string name="item_cart_price">商品单价</string>
+    <string name="item_cart_number">商品数量</string>
+    <string name="item_cart_name">商品名称</string>
+    <string name="btn_reduce"> - </string>
+    <string name="default_edit_text">1</string>
+    <string name="btn_add"> + </string>
+</resources>

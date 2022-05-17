@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/drawable/check_box_style.xml" value="0.195" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.153" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_login.xml" value="0.325" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_main.xml" value="0.10869565217391304" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_mall.xml" value="0.325" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_register.xml" value="0.15989583333333332" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/fragment_dashboard.xml" value="0.325" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/fragment_home.xml" value="0.325" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/fragment_notifications.xml" value="0.325" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/item_cart.xml" value="0.335" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/menu/bottom_nav_menu.xml" value="0.325" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
