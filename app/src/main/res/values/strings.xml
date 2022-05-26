@@ -13,4 +13,5 @@
     <string name="btn_reduce"> - </string>
     <string name="default_edit_text">1</string>
     <string name="btn_add"> + </string>
+    <string name="register">注册</string>
 </resources>
