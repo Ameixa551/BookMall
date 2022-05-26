@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.bookmall.MainActivity;
 import com.example.bookmall.R;
-import com.example.bookmall.SQLiteDB.MyDataBaseHelper;
+import com.example.bookmall.sqLiteDB.MyDataBaseHelper;
 
 public class RegisterActivity extends AppCompatActivity {
     private MyDataBaseHelper myDatabaseHelper = new MyDataBaseHelper(RegisterActivity.this);

@@ -2,15 +2,15 @@ package com.example.bookmall.activity;
 
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
 import com.example.bookmall.R;
-import com.example.bookmall.activity.databinding.ActivityMallBinding;
+import com.example.bookmall.databinding.ActivityMallBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MallActivity extends AppCompatActivity {
 

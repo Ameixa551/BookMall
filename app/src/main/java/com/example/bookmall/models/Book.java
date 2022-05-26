@@ -1,4 +1,4 @@
-package com.example.bookmall.Models;
+package com.example.bookmall.models;
 
 public class Book {
     private int id;

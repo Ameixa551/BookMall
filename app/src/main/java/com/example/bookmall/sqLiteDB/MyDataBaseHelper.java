@@ -1,4 +1,4 @@
-package com.example.bookmall.SQLiteDB;
+package com.example.bookmall.sqLiteDB;
 
 import android.content.Context;
 import android.database.Cursor;

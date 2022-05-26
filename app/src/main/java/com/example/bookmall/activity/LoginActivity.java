@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bookmall.SQLiteDB.MyDataBaseHelper;
+import com.example.bookmall.sqLiteDB.MyDataBaseHelper;
 import com.example.bookmall.R;
 
 public class LoginActivity extends AppCompatActivity {
