@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMall">
         <activity
+            android:name=".activity.PaySuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.MallActivity"
             android:exported="false"
             android:label="@string/title_activity_mall" />
