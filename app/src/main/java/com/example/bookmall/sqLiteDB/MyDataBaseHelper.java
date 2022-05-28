@@ -1,4 +1,4 @@
-package com.example.bookmall.sqLiteDB;
+package com.example.bookmall.SQLiteDB;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -54,7 +54,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
                 null,
                 null,
                 String.valueOf(1));
-        return cursor.moveToFirst();
-
+        boolean isExist = cursor.moveToFirst();
+        cursor.close();
+        return isExist;
     }
 }
