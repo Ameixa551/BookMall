@@ -25,4 +25,8 @@
     <string name="input_pwd">请输入密码</string>
     <string name="login">登录</string>
     <string name="go_back">返回</string>
+    <string name="history_order">历史订单</string>
+    <string name="shopping_cart">购物车</string>
+    <string name="manage">管理</string>
+    <string name="check_all">全选</string>
 </resources>
