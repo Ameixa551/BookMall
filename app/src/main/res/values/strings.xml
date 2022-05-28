@@ -13,5 +13,11 @@
     <string name="btn_reduce"> - </string>
     <string name="default_edit_text">1</string>
     <string name="btn_add"> + </string>
-    <string name="register">注册</string>
+    <string name="commodity_detail_title">商品详情</string>
+    <string name="commodity_detail_name">书籍名称</string>
+    <string name="commodity_detail_writer">作者</string>
+    <string name="commodity_detail_price">价格</string>
+    <string name="commodity_detail_book_number">书号</string>
+    <string name="commodity_detail_intro">书本简介</string>
+    <string name="commodity_btn_buy">加入购物车</string>
 </resources>

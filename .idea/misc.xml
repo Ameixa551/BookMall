@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/drawable/check_box_style.xml" value="0.195" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.153" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_detail.xml" value="0.2520833333333333" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_login.xml" value="0.325" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_main.xml" value="0.10869565217391304" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_mall.xml" value="0.325" />
+        <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_pay_success.xml" value="0.2520833333333333" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/activity_register.xml" value="0.15989583333333332" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/fragment_dashboard.xml" value="0.325" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/fragment_home.xml" value="0.325" />
