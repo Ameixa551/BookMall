@@ -10,13 +10,13 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.bookmall.SQLiteDB.MyDataBaseHelper;
 import com.example.bookmall.activity.LoginActivity;
 import com.example.bookmall.activity.MallActivity;
 import com.example.bookmall.activity.RegisterActivity;
+import com.example.bookmall.dao.UserMapper;
 
 public class MainActivity extends AppCompatActivity {
-    private final MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(MainActivity.this);
+    private final UserMapper userMapper = new UserMapper(MainActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         String name = sharedPreferences.getString("name", null);
         String pwd = sharedPreferences.getString("pwd", null);
 
-        SQLiteDatabase db = myDataBaseHelper.getReadableDatabase();
+        SQLiteDatabase db = userMapper.getReadableDatabase();
 
         // 如果不为空，则直接验证登录
-        if (name != null && pwd != null && myDataBaseHelper.isUserExist(db, name, pwd)) {
+        if (name != null && pwd != null && userMapper.isUserExist(db, name, pwd)) {
             Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, MallActivity.class);
             startActivity(intent);

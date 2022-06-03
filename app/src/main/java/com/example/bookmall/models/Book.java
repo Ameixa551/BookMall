@@ -1,6 +1,9 @@
 package com.example.bookmall.models;
 
-public class Book {
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+
+public class Book extends BaseObservable {
     private int id;
     private String name;
     private String coverPic;
@@ -18,6 +21,7 @@ public class Book {
         this.id = id;
     }
 
+    @Bindable
     public String getName() {
         return name;
     }
@@ -58,6 +62,7 @@ public class Book {
         this.ISBN = ISBN;
     }
 
+    @Bindable
     public String getDescription() {
         return description;
     }

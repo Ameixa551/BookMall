@@ -14,12 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bookmall.R;
-import com.example.bookmall.SQLiteDB.MyDataBaseHelper;
+import com.example.bookmall.dao.UserMapper;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText username;
     private EditText userPassword;
-    private final MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(LoginActivity.this);
+    private final UserMapper userMapper = new UserMapper(LoginActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         TextView goRegister = findViewById(R.id.login_linkregister_txtview);
         username = findViewById(R.id.login_username_txt);
         userPassword = findViewById(R.id.login_password_txt);
-        SQLiteDatabase db = myDataBaseHelper.getReadableDatabase();
+        SQLiteDatabase db = userMapper.getReadableDatabase();
         SharedPreferences sharedPreferences = getSharedPreferences("userInfo",
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             String name = username.getText().toString().trim();
             String password = userPassword.getText().toString().trim();
             if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
-                if (myDataBaseHelper.isUserExist(db, name, password)) {
+                if (userMapper.isUserExist(db, name, password)) {
                     // 将用户信息添加至SharedPreference
                     editor.putString("name", name);
                     editor.putString("pwd", password);

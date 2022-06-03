@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="category"
+            type="com.example.bookmall.models.Category" />
+        <variable
+            name="itemClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClickListener="@{itemClickListener}">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:text="@{category.name, default=xxxx}"
+            android:textColor="@color/item_category_press_color"
+            android:textSize="20sp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:textIsSelectable="true"/>
+
+    </LinearLayout>
+</layout>

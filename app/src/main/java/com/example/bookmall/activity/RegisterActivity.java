@@ -12,10 +12,10 @@ import android.widget.Toast;
 
 import com.example.bookmall.MainActivity;
 import com.example.bookmall.R;
-import com.example.bookmall.SQLiteDB.MyDataBaseHelper;
+import com.example.bookmall.dao.UserMapper;
 
 public class RegisterActivity extends AppCompatActivity {
-    private MyDataBaseHelper myDatabaseHelper = new MyDataBaseHelper(RegisterActivity.this);
+    private UserMapper userMapper = new UserMapper(RegisterActivity.this);
     private EditText username;
     private EditText userPassword;
     private Button register;
@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        SQLiteDatabase db = myDatabaseHelper.getWritableDatabase();
+        SQLiteDatabase db = userMapper.getWritableDatabase();
         register = findViewById(R.id.register_register_btn);
         goBack = findViewById(R.id.register_goBack_btn);
         username = findViewById(R.id.register_username_txt);
@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
             String name = username.getText().toString().trim();
             String password = userPassword.getText().toString().trim();
             if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(password)){
-                myDatabaseHelper.addUser(db,name,password);
+                userMapper.addUser(db,name,password);
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();

@@ -2,10 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.ui.dashboard.HomeFragment"
+        tools:context="com.example.bookmall.activity.ui.home.HomeFragment"
         android:orientation="vertical">
 
         <LinearLayout
@@ -46,18 +50,33 @@
                 android:orientation="horizontal">
 
                 <!--左侧商品类别-->
-                <ListView
-                    android:id="@+id/shopping_classify_list"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="3" />
+                    android:layout_weight="3"
+                    android:background="@color/super_light_gray">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fragment_home_category_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical"/>
+                </LinearLayout>
+
 
                 <!--右侧商品列表-->
-                <ListView
-                    android:id="@+id/shooping_goods_list"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/light_gray">
+
+                    <ListView
+                        android:id="@+id/fragment_home_book_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
 
                 <!--进度条动画,默认隐藏-->
                 <RelativeLayout

@@ -5,7 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.ui.home.DashboardFragment"
+        tools:context=".activity.ui.dashboard.DashboardFragment"
         android:orientation="vertical">
 
         <!--头部toolbar-->
