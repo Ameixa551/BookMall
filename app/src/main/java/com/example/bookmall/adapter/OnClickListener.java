@@ -1,5 +1,5 @@
 package com.example.bookmall.adapter;
 
-public interface OnItemClickListener<T> {
+public interface OnClickListener<T>{
     void onItemClick(T item);
 }

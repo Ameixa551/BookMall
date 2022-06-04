@@ -1,6 +1,5 @@
 package com.example.bookmall.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -14,12 +13,9 @@ import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
     private final List<Category> mCategoryList;
-    private final OnItemClickListener<Category> listener;
-    private final LayoutInflater layoutInflater;
+    private final OnClickListener<Category> listener;
 
-
-    public CategoryAdapter(Context context, List<Category> categoryList, OnItemClickListener<Category> listener){
-        this.layoutInflater = LayoutInflater.from(context);
+    public CategoryAdapter(List<Category> categoryList, OnClickListener<Category> listener){
         this.mCategoryList = categoryList;
         this.listener = listener;
     }
@@ -27,7 +23,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemCategoryBinding binding = ItemCategoryBinding.inflate(layoutInflater, parent, false);
+        ItemCategoryBinding binding = ItemCategoryBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
 
@@ -35,7 +31,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Category category = mCategoryList.get(position);
         holder.binding.setCategory(category);
-        holder.binding.setItemClickListener(click -> listener.onItemClick(category));
+        holder.binding.setOnItemClick(view -> listener.onItemClick(category));
     }
 
     @Override
