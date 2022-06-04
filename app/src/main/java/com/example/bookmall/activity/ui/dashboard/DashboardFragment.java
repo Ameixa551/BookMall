@@ -1,5 +1,6 @@
 package com.example.bookmall.activity.ui.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,13 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.ObservableFloat;
-import androidx.databinding.ObservableInt;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.bookmall.activity.MallViewModel;
+import com.example.bookmall.activity.PaySuccessActivity;
 import com.example.bookmall.adapter.CartAdapter;
 import com.example.bookmall.databinding.FragmentDashboardBinding;
 
@@ -32,7 +32,7 @@ public class DashboardFragment extends Fragment {
         mallViewModel = new ViewModelProvider(requireActivity()).get(MallViewModel.class);
         dashboardViewModel.addContext(getContext());
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
-        int uid = Objects.requireNonNull(mallViewModel.getUserInfo().getValue()).getId();
+        dashboardViewModel.addUid(Objects.requireNonNull(mallViewModel.getUserInfo().getValue()).getId());
 
         cartAdapter = new CartAdapter(dashboardViewModel.getOrderList().getValue(), item -> {
             // 删除
@@ -51,7 +51,14 @@ public class DashboardFragment extends Fragment {
             dashboardViewModel.getTotalCount();
         });
 
-        dashboardViewModel.getDisplayOrderList(uid);
+        binding.setPayClickListener(view -> {
+            dashboardViewModel.paySelected();
+            //跳转界面
+            Intent intent = new Intent(getContext(), PaySuccessActivity.class);
+            startActivity(intent);
+        });
+
+        dashboardViewModel.getDisplayOrderList();
         dashboardViewModel.getTotalCount();
         binding.setViewModel(dashboardViewModel);
         return binding.getRoot();

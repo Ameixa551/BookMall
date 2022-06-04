@@ -1,7 +1,6 @@
 package com.example.bookmall.activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +15,6 @@ public class PaySuccessActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pay_success);
 
         Button goBack = findViewById(R.id.pay_goBack_btn);
-        goBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        goBack.setOnClickListener(view -> finish());
     }
 }

@@ -15,6 +15,7 @@ import com.example.bookmall.models.DisplayOrder;
 import com.example.bookmall.models.Order;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,6 +28,7 @@ public class DashboardViewModel extends ViewModel implements Observable {
     private BookMapper bookMapper;
     private SQLiteDatabase orderDB;
     private SQLiteDatabase bookDB;
+    private int uid;
 
     public DashboardViewModel() {
         orderList = new MutableLiveData<>();
@@ -41,7 +43,11 @@ public class DashboardViewModel extends ViewModel implements Observable {
         bookDB = bookMapper.getReadableDatabase();
     }
 
-    public void getDisplayOrderList(int uid){
+    public void addUid(int uid){
+        this.uid = uid;
+    }
+
+    public void getDisplayOrderList(){
         List<Order> orders = orderMapper.selectCartOrder(orderDB, uid);
         List<DisplayOrder> displayOrders = new ArrayList<>();
         for(Order o: orders){
@@ -86,7 +92,7 @@ public class DashboardViewModel extends ViewModel implements Observable {
 
     public void deleteOrder(DisplayOrder order) {
         orderMapper.deleteOrder(orderDB, order.getOrder());
-        this.getDisplayOrderList(order.getUid());
+        this.getDisplayOrderList();
     }
 
     public void updateItemChecked(DisplayOrder order) {
@@ -98,7 +104,19 @@ public class DashboardViewModel extends ViewModel implements Observable {
         orderList.setValue(orders);
     }
 
-    private PropertyChangeRegistry callbacks=new PropertyChangeRegistry();
+    public void paySelected() {
+        for(DisplayOrder order: Objects.requireNonNull(orderList.getValue())){
+            if(order.getSelected()){
+                Order order1 = order.getOrder();
+                order1.setIsPaid(true);
+                order1.setPayTime(Calendar.getInstance().getTimeInMillis());
+                orderMapper.updateOrderState(orderDB, order1);
+            }
+        }
+        this.getDisplayOrderList();
+    }
+
+    private PropertyChangeRegistry callbacks = new PropertyChangeRegistry();
     @Override
     public void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
         callbacks.add(callback);
