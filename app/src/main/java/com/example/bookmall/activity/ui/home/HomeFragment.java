@@ -1,7 +1,9 @@
 package com.example.bookmall.activity.ui.home;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.example.bookmall.activity.DetailActivity;
 import com.example.bookmall.adapter.BookAdapter;
 import com.example.bookmall.adapter.CategoryAdapter;
-import com.example.bookmall.adapter.OnClickListener;
 import com.example.bookmall.dao.BookMapper;
 import com.example.bookmall.dao.CategoryMapper;
 import com.example.bookmall.databinding.FragmentHomeBinding;
@@ -57,11 +59,10 @@ public class HomeFragment extends Fragment{
         SQLiteDatabase bookDB = bookMapper.getWritableDatabase();
         bookMapper.onCreate(bookDB);
         List<Book> books = bookMapper.selectByCategory(bookDB, 1);
-        bookAdapter = new BookAdapter(books, new OnClickListener<Book>() {
-            @Override
-            public void onItemClick(Book item) {
-                Toast.makeText(getContext(), "点击图片", Toast.LENGTH_SHORT).show();
-            }
+        bookAdapter = new BookAdapter(books, item -> {
+            Intent intent = new Intent(getContext(), DetailActivity.class);
+            intent.putExtra("book", item);
+            startActivity(intent);
         });
         binding.fragmentHomeBookListView.setAdapter(bookAdapter);
         binding.fragmentHomeBookListView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));

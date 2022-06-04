@@ -1,186 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/super_light_gray"
-    tools:context=".activity.DetailActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="book"
+            type="com.example.bookmall.models.Book" />
+    </data>
+
     <RelativeLayout
-        android:id="@+id/detail_title_layout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/certainBlue">
-
-        <LinearLayout
-            android:id="@+id/detail_title_left"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:gravity="right">
-
-            <ImageView
-                android:id="@+id/detail_back"
-                android:layout_width="20dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center"
-                android:src="@drawable/back" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@+id/detail_back"
-                android:gravity="center"
-                android:text="@string/commodity_detail_title"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-    </RelativeLayout>
-    <ScrollView
-        android:id="@+id/ScrollView_layout"
-        android:layout_height="620dp"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/detail_title_layout"
-        android:fillViewport="true"
-        android:layout_weight="0">
+        android:layout_height="match_parent"
+        android:background="@color/super_light_gray"
+        tools:context=".activity.DetailActivity">
 
         <RelativeLayout
+            android:id="@+id/detail_title_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/certainBlue">
 
-            <!--图片-->
             <LinearLayout
-                android:id="@+id/detail_banner_layout"
+                android:id="@+id/detail_title_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                tools:ignore="seCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/detail_back"
+                    android:layout_width="20dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/back" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:gravity="center"
+                    android:text="@string/commodity_detail_title"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/ScrollView_layout"
+            android:layout_height="620dp"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/detail_title_layout"
+            android:fillViewport="true"
+            android:background="@color/light_gray">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!--图片-->
                 <ImageView
                     android:id="@+id/detail_book_image"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    android:background="@color/white"
-                    android:src="@drawable/avator" />
-            </LinearLayout>
-            <!--书名-->
-            <LinearLayout
-                android:id="@+id/detail_name_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/detail_banner_layout"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="horizontal">
-
+                    android:scaleType="fitCenter"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white" />
+                <!--书名-->
                 <TextView
                     android:id="@+id/detail_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/commodity_detail_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@{book.name}"
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
-            </LinearLayout>
-            <!--价格-->
-            <LinearLayout
-                android:id="@+id/detail_price_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/detail_name_layout"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="horizontal">
+                    android:textSize="30sp"
+                    android:background="@color/white"/>
 
+                <!--价格-->
                 <TextView
                     android:id="@+id/detail_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/commodity_detail_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
+                    android:text='@{"价格:￥"+book.price}'
                     android:textColor="@color/certainBlue"
                     android:textSize="25sp"
                     android:textStyle="bold" />
-            </LinearLayout>
-            <!--作者和书号-->
-            <LinearLayout
-                android:id="@+id/detail_writer_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/detail_price_layout"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="vertical">
 
+                <!--作者和书号-->
                 <TextView
                     android:id="@+id/detail_writer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/commodity_detail_writer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
+                    android:text='@{"作者:"+ book.author}'
                     android:textColor="@color/black"
                     android:textSize="20sp" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/super_light_gray" />
 
                 <TextView
                     android:id="@+id/detail_book_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:text="@string/commodity_detail_book_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
+                    android:text='@{"ISBN-13:"+book.ISBN}'
                     android:textColor="@color/black"
                     android:textSize="20sp" />
-            </LinearLayout>
-            <!--简介-->
-            <LinearLayout
-                android:id="@+id/detail_intro_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/detail_writer_layout"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="horizontal">
 
+                <!--简介-->
                 <TextView
                     android:id="@+id/detail_introduction"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white"
                     android:scrollbars="vertical"
                     android:singleLine="false"
-                    android:text="@string/commodity_detail_intro"
+                    android:text='@{"简介:"+book.description}'
                     android:textColor="@color/black"
                     android:textSize="20sp" />
             </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
-    <LinearLayout
-        android:id="@+id/detail_service"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@id/ScrollView_layout"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true">
+        </ScrollView>
 
-        <Button
-            android:id="@+id/commodity_detail_btn_buy"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:padding="8dp"
-            android:text="@string/commodity_btn_buy"
-            android:textColor="@color/certainBlue"
-            android:theme="@style/ButtonTheme" />
+        <LinearLayout
+            android:id="@+id/detail_service"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/ScrollView_layout"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true">
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/commodity_detail_btn_buy"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:text="@string/commodity_btn_buy"
+                android:background="@drawable/btn_bg"
+                android:textColor="@color/white" />
 
-</RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

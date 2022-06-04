@@ -13,6 +13,7 @@
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/fragment_home.xml" value="0.325" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/layout/fragment_notifications.xml" value="0.325" />
         <entry key="..\:/AndroidStudio/work/BookMall/app/src/main/res/menu/bottom_nav_menu.xml" value="0.325" />
+        <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/drawable/btn_bg.xml" value="0.233" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/drawable/shape_10dp_corners.xml" value="0.1695" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/activity_detail.xml" value="0.3265625" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/activity_login.xml" value="0.3188405797101449" />
@@ -22,7 +23,7 @@
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/activity_register.xml" value="0.3188405797101449" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/fragment_dashboard.xml" value="0.3188405797101449" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/fragment_notifications.xml" value="0.1511627906976744" />
+        <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_book.xml" value="0.22" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_cart.xml" value="0.3188405797101449" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_category.xml" value="0.33" />

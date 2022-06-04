@@ -1,9 +1,14 @@
 package com.example.bookmall.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
-public class Book extends BaseObservable {
+import java.io.Serializable;
+
+public class Book extends BaseObservable implements Serializable {
     private int id;
     private String name;
     private String coverPic;
@@ -60,6 +65,7 @@ public class Book extends BaseObservable {
         this.price = price;
     }
 
+    @Bindable
     public String getAuthor() {
         return author;
     }
@@ -68,6 +74,7 @@ public class Book extends BaseObservable {
         this.author = author;
     }
 
+    @Bindable
     public String getISBN() {
         return ISBN;
     }
@@ -76,6 +83,7 @@ public class Book extends BaseObservable {
         this.ISBN = ISBN;
     }
 
+    @Bindable
     public String getDescription() {
         return description;
     }

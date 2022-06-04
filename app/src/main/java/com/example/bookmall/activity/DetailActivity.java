@@ -1,14 +1,17 @@
 package com.example.bookmall.activity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.example.bookmall.R;
+import com.example.bookmall.databinding.ActivityDetailBinding;
+import com.example.bookmall.models.Book;
+import com.example.bookmall.utils.ImageBase64;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -16,38 +19,19 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        ActivityDetailBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
+        Book book = (Book)getIntent().getSerializableExtra("book");
+        binding.setBook(book);
+        binding.detailBookImage.setImageBitmap(ImageBase64.base64ToBitmap(book.getCoverPic()));
 
         //返回按钮
         ImageView goBack = findViewById(R.id.detail_back);
-        goBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        goBack.setOnClickListener(view -> finish());
 
         //加入购物车按钮
         Button addCart = findViewById(R.id.commodity_detail_btn_buy);
-        addCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
+        addCart.setOnClickListener(view -> {
+            Toast.makeText(this, "加入购物车", Toast.LENGTH_SHORT).show();
         });
-
-        //书籍大图
-        ImageView bookImage = findViewById(R.id.detail_book_image);
-        //书籍名称
-        TextView bookName = findViewById(R.id.detail_name);
-        //价格
-        TextView bookPrice = findViewById(R.id.detail_price);
-        //作者
-        TextView bookWriter = findViewById(R.id.detail_writer);
-        //书号
-        TextView bookNumber = findViewById(R.id.detail_book_number);
-        //书本简介
-        TextView bookIntro = findViewById(R.id.detail_introduction);
-
-
     }
 }
