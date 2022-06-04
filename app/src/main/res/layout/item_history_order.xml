@@ -16,6 +16,7 @@
         android:layout_height="140dp"
         android:orientation="vertical"
         android:background="@drawable/shape_10dp_corners"
+        android:onClickListener="@{onClickListener}"
         android:layout_margin="5dp">
 
         <TextView
