@@ -25,7 +25,8 @@
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_book.xml" value="0.22" />
-        <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_cart.xml" value="0.3188405797101449" />
+        <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_cart.xml" value="0.22" />
+        <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_carts.xml" value="0.1" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_category.xml" value="0.33" />
       </map>
     </option>
