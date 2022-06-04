@@ -153,6 +153,20 @@ public class BookMapper extends MyDataBaseHelper{
         return books;
     }
 
+    public Book selectById(SQLiteDatabase db,int bookId){
+        Book book = null;
+        String cid = Integer.toString(bookId);
+        Cursor cursor = db.query(TABLE_NAME,null,"id=?",new String[]{cid},null,
+                null,null,null);
+        if (cursor.moveToFirst()){
+            book = new Book(cursor.getInt(0),cursor.getString(1),cursor.getString(2),
+                    cursor.getFloat(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),
+                    CategoryMapper.selectById(db,cursor.getInt(7)));
+        }
+        cursor.close();
+        return book;
+    }
+
     private void insert(SQLiteDatabase sqLiteDatabase, List<Book> books){
         for (Book c : books) {
             ContentValues cv = new ContentValues();

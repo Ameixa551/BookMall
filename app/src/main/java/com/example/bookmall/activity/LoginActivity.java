@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.bookmall.R;
 import com.example.bookmall.dao.UserMapper;
+import com.example.bookmall.models.User;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText username;
@@ -39,10 +40,12 @@ public class LoginActivity extends AppCompatActivity {
             String name = username.getText().toString().trim();
             String password = userPassword.getText().toString().trim();
             if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
-                if (userMapper.isUserExist(db, name, password)) {
+                User user = userMapper.isUserExist(db, name, password);
+                if (user != null) {
                     // 将用户信息添加至SharedPreference
-                    editor.putString("name", name);
-                    editor.putString("pwd", password);
+                    editor.putInt("uid", user.getId());
+                    editor.putString("name", user.getName());
+                    editor.putString("pwd", user.getPassword());
                     editor.apply();
 
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();

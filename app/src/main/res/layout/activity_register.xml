@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/login"
+            android:text="@string/register"
             android:textColor="#FFFFFF"
             android:textSize="20sp"/>
 
@@ -88,8 +88,7 @@
                 android:layout_gravity="center"
                 android:padding="12dp"
                 android:text="@string/register"
-                android:textColor="@color/certainBlue"
-                android:theme="@style/ButtonTheme">
+                android:textColor="@color/white">
             </Button>
 
             <Button
@@ -101,8 +100,7 @@
                 android:layout_gravity="center"
                 android:padding="12dp"
                 android:text="@string/go_back"
-                android:textColor="@color/certainBlue"
-                android:theme="@style/ButtonTheme">
+                android:textColor="@color/white">
             </Button>
 
         </LinearLayout>
