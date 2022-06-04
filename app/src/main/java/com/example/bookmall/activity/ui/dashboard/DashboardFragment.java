@@ -1,8 +1,5 @@
 package com.example.bookmall.activity.ui.dashboard;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,53 +7,53 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.ObservableFloat;
+import androidx.databinding.ObservableInt;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.bookmall.activity.MallViewModel;
 import com.example.bookmall.adapter.CartAdapter;
-import com.example.bookmall.dao.BookMapper;
-import com.example.bookmall.dao.OrderMapper;
 import com.example.bookmall.databinding.FragmentDashboardBinding;
-import com.example.bookmall.models.Book;
-import com.example.bookmall.models.Order;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
     private CartAdapter cartAdapter;
-    private OrderMapper orderMapper;
-    private BookMapper bookMapper;
+    private MallViewModel mallViewModel;
+    private DashboardViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
+        mallViewModel = new ViewModelProvider(requireActivity()).get(MallViewModel.class);
+        dashboardViewModel.addContext(getContext());
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
-        orderMapper = new OrderMapper(getContext());
-        bookMapper = new BookMapper(getContext());
-        SQLiteDatabase orderDB = orderMapper.getWritableDatabase();
-        SQLiteDatabase bookDB = bookMapper.getReadableDatabase();
-        SharedPreferences sharedPreferences = container.getContext().getSharedPreferences("userInfo",
-                Context.MODE_PRIVATE);
-        int uid = sharedPreferences.getInt("uid", -1);
+        int uid = Objects.requireNonNull(mallViewModel.getUserInfo().getValue()).getId();
 
-        List<Order> orderList = orderMapper.selectCartOrder(orderDB, uid);
-        List<Book> bookList = new ArrayList<>();
-        for(Order o: orderList){
-            bookList.add(bookMapper.selectById(bookDB, o.getBookId()));
-        }
-        cartAdapter = new CartAdapter(orderList, bookList, item -> {
+        cartAdapter = new CartAdapter(dashboardViewModel.getOrderList().getValue(), item -> {
             // 删除
-            orderMapper.deleteOrder(orderDB, item);
+            dashboardViewModel.deleteOrder(item);
             Toast.makeText(getContext(), "删除成功", Toast.LENGTH_SHORT).show();
+        }, item -> {
+            // 多选
+            dashboardViewModel.updateItemChecked(item);
         });
         binding.listShoppingCart.setAdapter(cartAdapter);
         binding.listShoppingCart.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        dashboardViewModel.getOrderList().observe(getViewLifecycleOwner(), displayOrders -> {
+            cartAdapter.setOrders(displayOrders);
+            cartAdapter.notifyDataSetChanged();
+            dashboardViewModel.getTotalCount();
+        });
+
+        dashboardViewModel.getDisplayOrderList(uid);
+        dashboardViewModel.getTotalCount();
+        binding.setViewModel(dashboardViewModel);
         return binding.getRoot();
     }
 

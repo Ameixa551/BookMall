@@ -6,6 +6,9 @@
         <variable
             name="payClickListener"
             type="android.view.View.OnClickListener" />
+        <variable
+            name="viewModel"
+            type="com.example.bookmall.activity.ui.dashboard.DashboardViewModel" />
     </data>
 
     <LinearLayout
@@ -60,7 +63,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="@string/total"
+                android:text='@{"合计:￥"+viewModel.totalPrice}'
                 android:textColor="@color/black" />
 
             <TextView
@@ -69,7 +72,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/certainBlue"
                 android:gravity="center"
-                android:text="@string/buy"
+                android:text='@{"结算("+viewModel.selectCount+")"}'
                 android:textColor="@color/white"
                 android:onClickListener="@{payClickListener}"/>
         </LinearLayout>

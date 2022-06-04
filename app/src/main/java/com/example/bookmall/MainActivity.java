@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             if (user != null){
                 Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, MallActivity.class);
+                intent.putExtra("userInfo", user);
                 startActivity(intent);
                 finish();
             }

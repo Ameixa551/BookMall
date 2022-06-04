@@ -3,6 +3,7 @@ package com.example.bookmall.activity;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -10,15 +11,21 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.bookmall.R;
 import com.example.bookmall.databinding.ActivityMallBinding;
+import com.example.bookmall.models.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MallActivity extends AppCompatActivity {
 
     private ActivityMallBinding binding;
+    private MallViewModel mallViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mallViewModel = new ViewModelProvider(this).get(MallViewModel.class);
+        User user = (User)getIntent().getSerializableExtra("userInfo");
+        mallViewModel.setUserInfo(user);
 
         binding = ActivityMallBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

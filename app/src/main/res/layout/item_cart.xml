@@ -5,13 +5,13 @@
 
     <data>
         <variable
-            name="book"
-            type="com.example.bookmall.models.Book" />
-        <variable
             name="order"
-            type="com.example.bookmall.models.Order" />
+            type="com.example.bookmall.models.DisplayOrder" />
         <variable
             name="deleteClickListener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="checkedClickListener"
             type="android.view.View.OnClickListener" />
     </data>
 
@@ -29,6 +29,8 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="5dp"
             android:button="@drawable/check_box_style"
+            android:onClickListener="@{checkedClickListener}"
+            android:checked="@{order.selected}"
             android:scaleX="0.6"
             android:scaleY="0.6" />
 
@@ -59,7 +61,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"
-                    android:text="@{book.name, default=xxxx}"
+                    android:text="@{order.name, default=xxxx}"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:textColor="@color/black"
                     android:textSize="25sp"
                     android:textStyle="bold" />
@@ -87,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="2"
                     android:layout_height="wrap_content"
-                    android:text='@{"单价:￥"+book.price}'
+                    android:text='@{"单价:￥"+order.price}'
                     android:textColor="@color/orange"
                     android:textSize="15sp"
                     android:textStyle="bold" />
