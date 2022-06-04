@@ -29,4 +29,5 @@
     <string name="shopping_cart">购物车</string>
     <string name="manage">管理</string>
     <string name="check_all">全选</string>
+    <string name="order_detail">订单详情</string>
 </resources>

@@ -16,6 +16,7 @@
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/drawable/btn_bg.xml" value="0.233" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/drawable/shape_10dp_corners.xml" value="0.1695" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/activity_detail.xml" value="0.3265625" />
+        <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/activity_history_order.xml" value="0.225" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/activity_login.xml" value="0.3188405797101449" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/activity_main.xml" value="0.3188405797101449" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/activity_mall.xml" value="0.25" />
@@ -28,6 +29,7 @@
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_cart.xml" value="0.25" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_carts.xml" value="0.1" />
         <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_category.xml" value="0.33" />
+        <entry key="..\:/PersonalFiles/Project/BookMall/app/src/main/res/layout/item_history_order.xml" value="0.33" />
       </map>
     </option>
   </component>
