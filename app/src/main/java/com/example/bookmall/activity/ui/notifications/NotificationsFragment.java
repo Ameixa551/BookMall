@@ -32,6 +32,7 @@ public class NotificationsFragment extends Fragment {
     private BookMapper bookMapper;
     private MallViewModel mallViewModel;
     private HistoryOrderAdapter historyOrderAdapter;
+    private SQLiteDatabase orderDB, bookDB;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,8 +43,8 @@ public class NotificationsFragment extends Fragment {
         mallViewModel = new ViewModelProvider(requireActivity()).get(MallViewModel.class);
         orderMapper = new OrderMapper(getContext());
         bookMapper = new BookMapper(getContext());
-        SQLiteDatabase orderDB = orderMapper.getReadableDatabase();
-        SQLiteDatabase bookDB = bookMapper.getReadableDatabase();
+        orderDB = orderMapper.getReadableDatabase();
+        bookDB = bookMapper.getReadableDatabase();
 
         List<Order> orderList = orderMapper.selectPaidOrder(orderDB, Objects.requireNonNull(mallViewModel.getUserInfo().getValue()).getId());
         List<DisplayOrder> displayOrders = new ArrayList<>();
@@ -66,5 +67,7 @@ public class NotificationsFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        bookDB.close();
+        orderDB.close();
     }
 }

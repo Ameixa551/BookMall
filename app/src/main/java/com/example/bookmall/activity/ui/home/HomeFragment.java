@@ -32,6 +32,7 @@ public class HomeFragment extends Fragment{
     private CategoryAdapter categoryAdapter;
     private BookMapper bookMapper;
     private CategoryMapper categoryMapper;
+    private SQLiteDatabase categoryDB, bookDB;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class HomeFragment extends Fragment{
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         categoryMapper = new CategoryMapper(getContext());
         bookMapper = new BookMapper(getContext());
-        SQLiteDatabase categoryDB = categoryMapper.getWritableDatabase();
+        categoryDB = categoryMapper.getWritableDatabase();
 
         // 类别
         categoryMapper.onCreate(categoryDB);
@@ -56,7 +57,7 @@ public class HomeFragment extends Fragment{
         binding.fragmentHomeCategoryListView.setAdapter(categoryAdapter);
 
         // 书籍
-        SQLiteDatabase bookDB = bookMapper.getWritableDatabase();
+        bookDB = bookMapper.getWritableDatabase();
         bookMapper.onCreate(bookDB);
         List<Book> books = bookMapper.selectByCategory(bookDB, 1);
         bookAdapter = new BookAdapter(books, item -> {
@@ -73,5 +74,7 @@ public class HomeFragment extends Fragment{
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        categoryDB.close();
+        bookDB.close();
     }
 }

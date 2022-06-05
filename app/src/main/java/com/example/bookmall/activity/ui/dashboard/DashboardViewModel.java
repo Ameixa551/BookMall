@@ -43,6 +43,11 @@ public class DashboardViewModel extends ViewModel implements Observable {
         bookDB = bookMapper.getReadableDatabase();
     }
 
+    public void destroy(){
+        orderDB.close();
+        bookDB.close();
+    }
+
     public void addUid(int uid){
         this.uid = uid;
     }

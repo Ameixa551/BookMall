@@ -49,6 +49,9 @@ public class DashboardFragment extends Fragment {
             cartAdapter.setOrders(displayOrders);
             cartAdapter.notifyDataSetChanged();
             dashboardViewModel.getTotalCount();
+            Bundle result = new Bundle();
+            result.putInt("count", displayOrders.size());
+            getParentFragmentManager().setFragmentResult("requestKey", result);
         });
 
         binding.setPayClickListener(view -> {
@@ -68,5 +71,6 @@ public class DashboardFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        dashboardViewModel.destroy();
     }
 }

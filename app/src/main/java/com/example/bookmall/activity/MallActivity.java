@@ -12,7 +12,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.bookmall.R;
 import com.example.bookmall.databinding.ActivityMallBinding;
 import com.example.bookmall.models.User;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MallActivity extends AppCompatActivity {
 
@@ -22,15 +21,15 @@ public class MallActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMallBinding.inflate(getLayoutInflater());
 
         mallViewModel = new ViewModelProvider(this).get(MallViewModel.class);
         User user = (User)getIntent().getSerializableExtra("userInfo");
         mallViewModel.setUserInfo(user);
 
-        binding = ActivityMallBinding.inflate(getLayoutInflater());
+
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(

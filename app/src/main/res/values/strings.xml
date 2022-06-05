@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Book Mall</string>
+    <string name="app_name">图书商城</string>
     <string name="title_activity_mall">MallActivity</string>
-    <string name="title_home">Book Mall</string>
-    <string name="title_dashboard">Shopping Cart</string>
-    <string name="title_notifications">Order History</string>
+    <string name="title_home">图书商城</string>
+    <string name="title_dashboard">购物车</string>
+    <string name="title_notifications">历史订单</string>
 
     <string name="total">合计:0.00</string>
     <string name="buy">结算(0)</string>

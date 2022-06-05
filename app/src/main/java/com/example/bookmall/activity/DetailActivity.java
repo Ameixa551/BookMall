@@ -19,7 +19,6 @@ import com.example.bookmall.models.Order;
 import com.example.bookmall.utils.ImageBase64;
 import com.example.bookmall.utils.TimeUtils;
 
-import java.util.Calendar;
 
 public class DetailActivity extends AppCompatActivity {
 
