@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +20,7 @@ import com.example.bookmall.databinding.FragmentDashboardBinding;
 
 import java.util.Objects;
 
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements PayAttentionFragment.PayAttentionDialogListener{
 
     private FragmentDashboardBinding binding;
     private CartAdapter cartAdapter;
@@ -49,16 +50,11 @@ public class DashboardFragment extends Fragment {
             cartAdapter.setOrders(displayOrders);
             cartAdapter.notifyDataSetChanged();
             dashboardViewModel.getTotalCount();
-            Bundle result = new Bundle();
-            result.putInt("count", displayOrders.size());
-            getParentFragmentManager().setFragmentResult("requestKey", result);
         });
 
         binding.setPayClickListener(view -> {
-            dashboardViewModel.paySelected();
-            //跳转界面
-            Intent intent = new Intent(getContext(), PaySuccessActivity.class);
-            startActivity(intent);
+            PayAttentionFragment payAttentionFragment = new PayAttentionFragment(this);
+            payAttentionFragment.show(this.getChildFragmentManager(), "dialog");
         });
 
         dashboardViewModel.getDisplayOrderList();
@@ -72,5 +68,19 @@ public class DashboardFragment extends Fragment {
         super.onDestroyView();
         binding = null;
         dashboardViewModel.destroy();
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        dashboardViewModel.paySelected();
+        Toast.makeText(getContext(), "支付成功", Toast.LENGTH_SHORT).show();
+        //跳转界面
+        Intent intent = new Intent(getContext(), PaySuccessActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        Toast.makeText(getContext(), "取消支付", Toast.LENGTH_SHORT).show();
     }
 }
