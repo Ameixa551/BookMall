@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.ui.dashboard.DashboardFragment"
+        tools:context="com.example.bookmall.activity.ui.home.HomeFragment"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:background="@color/certainBlue"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="10dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/app_name"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:textStyle="italic|bold" />
+                android:textStyle="bold" />
 
-            <SearchView
-                android:id="@+id/home_serachview"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@color/white"
-                android:focusable="false"
-                android:iconifiedByDefault="false"
-                android:queryHint="搜索图书" />
         </LinearLayout>
 
         <RelativeLayout
@@ -49,19 +41,32 @@
                 android:orientation="horizontal">
 
                 <!--左侧商品类别-->
-                <ListView
-                    android:id="@+id/shopping_classify_list"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
-                    android:scrollbars="none" />
+                    android:background="@color/super_light_gray">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fragment_home_category_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
 
                 <!--右侧商品列表-->
-                <ListView
-                    android:id="@+id/shooping_goods_list"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:background="@color/light_gray">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fragment_home_book_list_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </LinearLayout>
 
                 <!--进度条动画,默认隐藏-->
                 <RelativeLayout

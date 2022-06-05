@@ -1,16 +1,30 @@
 package com.example.bookmall.models;
 
-import java.util.Date;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order extends BaseObservable implements Serializable {
     private int id;
-    private Date CartTime;
-    private Date PayTime;
-    private Boolean isPaied;
+    private long cartTime;
+    private long payTime;
+    private Boolean isPaid;
     private float sumPrice;
     private int bookId;
     private int bookNum;
-    private int uId;
+    private int uid;
+
+    public Order(int id, long cartTime, long payTime, Boolean isPaid, float sumPrice, int bookId, int bookNum, int uid) {
+        this.id = id;
+        this.cartTime = cartTime;
+        this.payTime = payTime;
+        this.isPaid = isPaid;
+        this.sumPrice = sumPrice;
+        this.bookId = bookId;
+        this.bookNum = bookNum;
+        this.uid = uid;
+    }
 
     public int getId() {
         return id;
@@ -20,30 +34,33 @@ public class Order {
         this.id = id;
     }
 
-    public Date getCartTime() {
-        return CartTime;
+    @Bindable
+    public long getCartTime() {
+        return cartTime;
     }
 
-    public void setCartTime(Date cartTime) {
-        CartTime = cartTime;
+    public void setCartTime(long cartTime) {
+        this.cartTime = cartTime;
     }
 
-    public Date getPayTime() {
-        return PayTime;
+    @Bindable
+    public long getPayTime() {
+        return payTime;
     }
 
-    public void setPayTime(Date payTime) {
-        PayTime = payTime;
+    public void setPayTime(long payTime) {
+        this.payTime = payTime;
     }
 
-    public Boolean getPaied() {
-        return isPaied;
+    public Boolean getIsPaid() {
+        return isPaid;
     }
 
-    public void setPaied(Boolean paied) {
-        isPaied = paied;
+    public void setIsPaid(Boolean paid) {
+        isPaid = paid;
     }
 
+    @Bindable
     public float getSumPrice() {
         return sumPrice;
     }
@@ -52,14 +69,15 @@ public class Order {
         this.sumPrice = sumPrice;
     }
 
-    public int getBookId() {
-        return bookId;
+    public int getUid() {
+        return uid;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setUid(int uId) {
+        this.uid = uId;
     }
 
+    @Bindable
     public int getBookNum() {
         return bookNum;
     }
@@ -68,12 +86,12 @@ public class Order {
         this.bookNum = bookNum;
     }
 
-    public int getuId() {
-        return uId;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setuId(int uId) {
-        this.uId = uId;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 }
 

@@ -1,6 +1,11 @@
 package com.example.bookmall.models;
 
-public class Book {
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+
+import java.io.Serializable;
+
+public class Book extends BaseObservable implements Serializable {
     private int id;
     private String name;
     private String coverPic;
@@ -10,6 +15,18 @@ public class Book {
     private String description;
     private String category;
 
+
+    public Book(int id,String name,String coverPic,float price,String author,String ISBN,String description,String category){
+        this.id = id;
+        this.name = name;
+        this.coverPic = coverPic;
+        this.price = price;
+        this.author = author;
+        this.ISBN = ISBN;
+        this.description = description;
+        this.category = category;
+    }
+
     public int getId() {
         return id;
     }
@@ -18,6 +35,7 @@ public class Book {
         this.id = id;
     }
 
+    @Bindable
     public String getName() {
         return name;
     }
@@ -26,6 +44,7 @@ public class Book {
         this.name = name;
     }
 
+    @Bindable
     public String getCoverPic() {
         return coverPic;
     }
@@ -34,6 +53,7 @@ public class Book {
         this.coverPic = coverPic;
     }
 
+    @Bindable
     public float getPrice() {
         return price;
     }
@@ -42,6 +62,7 @@ public class Book {
         this.price = price;
     }
 
+    @Bindable
     public String getAuthor() {
         return author;
     }
@@ -50,6 +71,7 @@ public class Book {
         this.author = author;
     }
 
+    @Bindable
     public String getISBN() {
         return ISBN;
     }
@@ -58,6 +80,7 @@ public class Book {
         this.ISBN = ISBN;
     }
 
+    @Bindable
     public String getDescription() {
         return description;
     }

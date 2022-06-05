@@ -1,118 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:orientation="vertical">
+    tools:ignore="MissingDefaultResource">
 
-    <CheckBox
-        android:id="@+id/cart_choose_checkbox"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:button="@drawable/check_box_style"
-        android:scaleX="0.6"
-        android:scaleY="0.6"/>
+    <data>
+        <variable
+            name="order"
+            type="com.example.bookmall.models.DisplayOrder" />
+        <variable
+            name="deleteClickListener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="checkedClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
 
-    <ImageView
-        android:id="@+id/iv_show_pic"
-        android:layout_width="60dp"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@id/cart_choose_checkbox" />
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@id/iv_show_pic"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv_commodity_name"
-            android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginBottom="5dp">
+
+        <CheckBox
+            android:id="@+id/cart_choose_checkbox"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="@string/item_cart_name"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="5dp"
+            android:button="@drawable/check_box_style"
+            android:onClickListener="@{checkedClickListener}"
+            android:checked="@{order.selected}"
+            android:scaleX="0.6"
+            android:scaleY="0.6" />
+
+        <ImageView
+            android:id="@+id/iv_show_pic"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            tools:ignore="ContentDescription" />
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingEnd="10dp">
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal"
-            android:paddingBottom="5dp">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
             <TextView
-                android:id="@+id/tv_commodity_price"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_commodity_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/item_cart_price"
-                android:textColor="@color/orange"
-                android:textSize="12sp"
+                android:layout_gravity="center_vertical"
+                android:text="@{order.name, default=xxxx}"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="25sp"
                 android:textStyle="bold" />
-            <TextView
-                android:id="@+id/tv_commodity_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="@string/item_cart_number"
-                android:textColor="@color/gray" />
+
             <LinearLayout
-                android:id="@+id/rl_edit"
-                android:layout_width="120dp"
-                android:background="@color/light_gray"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp">
-                <TextView
-                    android:id="@+id/iv_sub"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:background="@color/white"
-                    android:layout_margin="1dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/btn_reduce" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="end">
 
                 <TextView
-                    android:id="@+id/tv_commodity_show_num"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:background="@color/white"
-                    android:layout_margin="1dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/default_edit_text"
-                    />
+                    android:id="@+id/tv_commodity_price"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text='@{"单价:￥"+order.price}'
+                    android:textColor="@color/orange"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/iv_add"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:background="@color/white"
-                    android:layout_margin="1dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/btn_add" />
+                    android:id="@+id/tv_commodity_num"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_marginStart="10dp"
+                    android:textSize="15sp"
+                    android:text='@{"数量:"+order.bookNum}'
+                    android:textColor="@color/gray" />
             </LinearLayout>
         </LinearLayout>
+        <ImageView
+            android:id="@+id/tv_commodity_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/delete"
+            android:layout_marginEnd="10dp"
+            android:onClickListener="@{deleteClickListener}"
+            android:visibility="visible" />
     </LinearLayout>
-    <ImageView
-        android:id="@+id/tv_commodity_delete"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/delete"
-        android:gravity="center"
-        android:layout_margin="5dp"
-        android:visibility="gone" />
-
-</RelativeLayout>
+</layout>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -60,7 +59,7 @@
                     android:id="@+id/register_username_txt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="请输入账号名"
+                    android:hint="@string/input_username"
                     android:inputType="number"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -75,7 +74,7 @@
                     android:id="@+id/register_password_txt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="请输入密码"
+                    android:hint="@string/input_pwd"
                     android:inputType="textPassword"
                     android:textColor="@color/black"/>
             </LinearLayout>
@@ -88,9 +87,8 @@
                 android:layout_marginBottom="24dp"
                 android:layout_gravity="center"
                 android:padding="12dp"
-                android:text="注册"
-                android:textColor="@color/certainBlue"
-                android:theme="@style/ButtonTheme">
+                android:text="@string/register"
+                android:textColor="@color/white">
             </Button>
 
             <Button
@@ -101,9 +99,8 @@
                 android:layout_marginBottom="24dp"
                 android:layout_gravity="center"
                 android:padding="12dp"
-                android:text="返回"
-                android:textColor="@color/certainBlue"
-                android:theme="@style/ButtonTheme">
+                android:text="@string/go_back"
+                android:textColor="@color/white">
             </Button>
 
         </LinearLayout>

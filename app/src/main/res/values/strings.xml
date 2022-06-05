@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Book Mall</string>
+    <string name="app_name">图书商城</string>
     <string name="title_activity_mall">MallActivity</string>
-    <string name="title_home">Book Mall</string>
-    <string name="title_dashboard">Shopping Cart</string>
-    <string name="title_notifications">Order History</string>
+    <string name="title_home">图书商城</string>
+    <string name="title_dashboard">购物车</string>
+    <string name="title_notifications">历史订单</string>
 
     <string name="total">合计:0.00</string>
     <string name="buy">结算(0)</string>
@@ -20,4 +20,14 @@
     <string name="commodity_detail_book_number">书号</string>
     <string name="commodity_detail_intro">书本简介</string>
     <string name="commodity_btn_buy">加入购物车</string>
+    <string name="register">注册</string>
+    <string name="input_username">请输入账号名</string>
+    <string name="input_pwd">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="go_back">返回</string>
+    <string name="history_order">历史订单</string>
+    <string name="shopping_cart">购物车</string>
+    <string name="manage">管理</string>
+    <string name="check_all">全选</string>
+    <string name="order_detail">订单详情</string>
 </resources>

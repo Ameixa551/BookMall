@@ -1,9 +1,18 @@
 package com.example.bookmall.models;
 
-public class User{
+import java.io.Serializable;
+
+public class User implements Serializable {
     private  int id;
     private  String name;
     private  String password;
+
+    public User(int id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+    }
+
     public User(String name,String password){
         super();
         this.name = name;
