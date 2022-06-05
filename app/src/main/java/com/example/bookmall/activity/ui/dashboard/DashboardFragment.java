@@ -53,8 +53,12 @@ public class DashboardFragment extends Fragment implements PayAttentionFragment.
         });
 
         binding.setPayClickListener(view -> {
-            PayAttentionFragment payAttentionFragment = new PayAttentionFragment(this);
-            payAttentionFragment.show(this.getChildFragmentManager(), "dialog");
+            if(dashboardViewModel.getSelectCount().getValue() != 0){
+                PayAttentionFragment payAttentionFragment = new PayAttentionFragment(this);
+                payAttentionFragment.show(this.getChildFragmentManager(), "dialog");
+            }else {
+                Toast.makeText(getContext(), "请先选择书籍", Toast.LENGTH_SHORT).show();
+            }
         });
 
         dashboardViewModel.getDisplayOrderList();
