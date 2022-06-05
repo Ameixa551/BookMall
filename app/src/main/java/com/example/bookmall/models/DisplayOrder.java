@@ -184,4 +184,8 @@ public class DisplayOrder extends BaseObservable implements Serializable {
     public void setUid(int uid) {
         this.uid = uid;
     }
+
+    public Book getBook() {
+        return new Book(bookId, name, coverPic, price, author, ISBN, description, category);
+    }
 }

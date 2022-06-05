@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <import type="com.example.bookmall.utils.TimeUtils"/>
         <variable
             name="order"
             type="com.example.bookmall.models.DisplayOrder" />
@@ -19,16 +20,33 @@
         android:onClickListener="@{onClickListener}"
         android:layout_margin="5dp">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='@{"订单编号:"+order.orderId, default=xxxx}'
-            android:textSize="20sp"
-            android:paddingStart="10dp"
-            android:textAlignment="viewStart"
-            android:textStyle="bold"
-            android:textColor="@color/gray"
-            tools:ignore="RtlSymmetry" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text='@{"订单编号:"+order.orderId, default=xxxx}'
+                android:textSize="15sp"
+                android:paddingStart="15dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray"
+                tools:ignore="RtlSymmetry" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text='@{"购买时间:"+TimeUtils.getDateToString(order.payTime,"yyyy-MM-dd HH:mm:ss"), default=xxxx}'
+                android:textSize="15sp"
+                android:paddingEnd="15dp"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/gray"
+                tools:ignore="RtlSymmetry" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

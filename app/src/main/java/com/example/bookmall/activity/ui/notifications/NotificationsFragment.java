@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.bookmall.activity.HistoryOrderActivity;
+import com.example.bookmall.activity.DetailActivity;
 import com.example.bookmall.activity.MallViewModel;
 import com.example.bookmall.adapter.HistoryOrderAdapter;
 import com.example.bookmall.dao.BookMapper;
@@ -52,8 +52,8 @@ public class NotificationsFragment extends Fragment {
         }
 
         historyOrderAdapter = new HistoryOrderAdapter(displayOrders, item -> {
-            Intent intent = new Intent(getContext(), HistoryOrderActivity.class);
-            intent.putExtra("order", item);
+            Intent intent = new Intent(getContext(), DetailActivity.class);
+            intent.putExtra("book", item.getBook());
             startActivity(intent);
         });
         binding.listShoppingCart.setLayoutManager(new LinearLayoutManager(getContext()));

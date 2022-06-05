@@ -17,6 +17,7 @@ import com.example.bookmall.databinding.ActivityDetailBinding;
 import com.example.bookmall.models.Book;
 import com.example.bookmall.models.Order;
 import com.example.bookmall.utils.ImageBase64;
+import com.example.bookmall.utils.TimeUtils;
 
 import java.util.Calendar;
 
@@ -57,7 +58,7 @@ public class DetailActivity extends AppCompatActivity {
                     orderMapper.updateBookNum(db, existOrder);
                 } else {
                     // 购物车中不存在该书
-                    existOrder = new Order(0, Calendar.getInstance().getTimeInMillis(),
+                    existOrder = new Order(0, TimeUtils.getCurDateMills(),
                             0, false, book.getPrice(), book.getId(), 1, uid);
                     orderMapper.addOrder(db, existOrder);
                 }

@@ -105,7 +105,7 @@ public class OrderMapper extends MyDataBaseHelper{
     public List<Order> selectPaidOrder(SQLiteDatabase sqLiteDatabase, int uid){
         List<Order> orders = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.query(TABLE_NAME,null,"is_paid=? AND uid=?",new String[]{"1", String.valueOf(uid)},null,
-                null,null,null);
+                null,"pay_time desc",null);
         if(cursor != null) {
             while (cursor.moveToNext()) {
                 Order order = new Order(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getInt(3) != 0,

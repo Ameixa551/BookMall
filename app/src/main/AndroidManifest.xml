@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookMall">
         <activity
-            android:name=".activity.HistoryOrderActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.PaySuccessActivity"
             android:exported="false" />
         <activity
